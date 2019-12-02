@@ -70,7 +70,19 @@ MODULES = [
     'voting',
 ]
 
-BASEURL = 'http://localhost:8000'
+BASEURL = 'https://decideegctest.herokuapp.com'
+
+APIS = {
+    'authentication': 'https://decideegctest.herokuapp.com',
+    'base': 'https://decideegctest.herokuapp.com',
+    'booth': 'https://decideegctest.herokuapp.com',
+    'census': 'https://decideegctest.herokuapp.com',
+    'mixnet': 'https://decideegctest.herokuapp.com',
+    'postproc': 'https://decideegctest.herokuapp.com',
+    'store': 'https://decideegctest.herokuapp.com',
+    'visualizer': 'https://decideegctest.herokuapp.com',
+    'voting': 'https://decideegctest.herokuapp.com',
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -159,7 +171,7 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 STATIC_URL = '/static/'
 
 # number of bits for the key, all auths should use the same number of bits
-KEYBITS = 256
+KEYBITS =161
 
 # Versioning
 ALLOWED_VERSIONS = ['v1', 'v2']
@@ -180,3 +192,6 @@ if os.path.exists("config.jsonnet"):
 
 
 INSTALLED_APPS = INSTALLED_APPS + MODULES
+
+import django_heroku
+django_heroku.settings(locals())
